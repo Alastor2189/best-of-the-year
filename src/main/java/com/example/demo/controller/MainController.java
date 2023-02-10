@@ -19,7 +19,9 @@ import com.example.demo.classes.Song;
 public class MainController {
 	
 	@GetMapping
-	public String index() {
+	public String index(Model model) {
+		String name = "Gianluca";
+		model.addAttribute("name", name);
 		return "index";
 	}
 
