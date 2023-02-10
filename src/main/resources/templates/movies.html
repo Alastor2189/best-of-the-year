@@ -2,10 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Pagina</title>
+<title>Movies list</title>
 </head>
 <body>
-<h1 th:text="'Best of the year by ' + ${name}"></h1>
 
+<h1>
+Lista dei movies
+</h1>
+<p th:text="${movies}"></p>
 </body>
 </html>
