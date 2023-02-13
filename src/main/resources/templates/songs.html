@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Songs list</title>
+<title>Songs List</title>
+<div th:replace="~{fragments :: head}"></div>
 </head>
 <body>
 
 <h1>
-Lista dei movies
+Lista delle canzoni
 </h1>
-<p th:text="${songs}"></p>
+<div th:replace="~{fragments :: navbar('songs')}"></div>
+<p th:text="${movies}"></p>
+<div th:replace="~{fragments :: script}"></div>
 </body>
 </html>
