@@ -2,8 +2,9 @@ package com.example.demo.controller;
 
 
 import java.util.ArrayList;
-import java.util.List;
 
+import java.util.List;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,6 +52,13 @@ public class MainController {
 
 		return movies;
 	}
+	
+	public Movie getMovie(int id) {
+		return getBestMovies().get(id-1);
+	}
+	public Song getSong(int id) {
+		return getBestSongs().get(id-1);
+	}
 
 	private List<Song> getBestSongs() {
 		List<Song> songs = new ArrayList<>();
@@ -65,4 +73,21 @@ public class MainController {
 		return songs;
 	}
 	
+	
+	
+	
+	@GetMapping("/movies/{id}")
+	public String detailMovie(Model model, @PathVariable("id") String id) {
+		model.addAttribute("song", getBestSongs().get(Integer.parseInt(id) - 1));
+
+		return "singleMovie";
+	}
+	
+	
+	@GetMapping("/songs/{id}")
+	public String detailSong(Model model, @PathVariable("id") String id) {
+		model.addAttribute("song", getBestSongs().get(Integer.parseInt(id) - 1));
+
+		return "singleSong";
+	}
 }
